@@ -69,6 +69,7 @@ func ratesHandler(res http.ResponseWriter, req *http.Request) {
 		return
 	}
 
+	res.WriteHeader(http.StatusOK)
 	res.Header().Set("Content-Type", "application/json")
 	res.Write(js)
 }
