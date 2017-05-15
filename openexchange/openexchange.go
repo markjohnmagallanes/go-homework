@@ -22,8 +22,16 @@ var (
 	mutex    sync.Mutex
 )
 
+//OpenExchangeAPI implementation
+type OpenExchangeAPI struct{}
+
+//APICalls interfaces for getting currency rates
+type APICalls interface {
+	GetCurrencyRates() OERates
+}
+
 // GetCurrencyRates return rates inside the OERates object
-func GetCurrencyRates() OERates {
+func (api OpenExchangeAPI) GetCurrencyRates() OERates {
 	return getInstance().clone()
 }
 
